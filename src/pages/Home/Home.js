@@ -1,12 +1,13 @@
+import { HomeStyled } from "./Home.styled";
+
 import { useNavigate } from "react-router-dom";
-import "./HomeStyle.css";
 
 const Home = () => {
 
     const navigate = useNavigate();
 
     return(
-        <header>
+        <HomeStyled>
             <section className="container-text">
                 <h1 className="title">The Power to <br /> live Healthy <br /> and Fit</h1>
                 <p className="subtitle">Encontre um grupo para praticar esportes</p>
@@ -31,7 +32,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-        </header>
+        </HomeStyled>
     )
 }
 
