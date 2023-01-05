@@ -24,21 +24,24 @@ export const RegisterStyled = styled.section`
 
         font-size: 1.1em;
 
+        & fieldset{
+            margin: 8px 0;
+            padding: 10px;
+        }
+
+        & fieldset#form-about-manager{
+            border: solid var(--c-orange) 5px;
+        }
+
+        & fieldset#form-about-group{
+            border: solid var(--c-purple) 5px;
+        }
 
         & legend{
             font-size: 1em;
             font-weight: 800;
+            padding: 0 10px;
             text-transform: uppercase;
-            margin: 6px 0;
-     
-            &::after{
-                background-color: var(--c-orange);
-                content: "";
-                display: block;
-                height: 3px;
-                margin-top: 5px;
-                width: 80px;
-            }
         }
 
         & button{
@@ -56,17 +59,10 @@ export const RegisterStyled = styled.section`
                 background-color: var(--c-black);
             }
         }
-    }
 
-
-    & .group-input{
-        display: flex;
-        flex-direction: column;
-        margin: 6px 0;
-
-        & label{
-            font-size: 1em;
-            font-weight: 600;
+        & p[role="alert"]{
+            color: red;
+            font-size: .8em;
         }
 
         & input{
@@ -75,10 +71,54 @@ export const RegisterStyled = styled.section`
             font-size: 1em;
         }
 
-        & p[role="alert"]{
-            color: red;
-            font-size: .8em;
+        & input[type=checkbox]{
+            accent-color: var(--c-purple);
+        }
+
+        & input:out-of-range{
+            border: solid red 1px;
         }
     }
 
+
+    & .group-input{
+        display: flex;
+        flex-direction: column;
+        margin: 6px 0;
+
+        & label.label-input{
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        & label{
+            font-size: 1em;
+            font-weight: 400;
+        }
+
+        & label.required-input:after{
+            content:"*";
+            color:red;
+            font-size: .8rem;
+            padding-left: 4px;
+            position:relative;
+        }
+
+    }
+
+    & .group-inputs-inline{
+        display: grid;
+        grid-template-columns: 50% 45%;
+        justify-content: space-between;
+    }
+
+    & .group-input-number{
+        display: flex;
+    }
+
+`
+
+export const GridInputInline = styled.section`
+    display: grid;
+    grid-template-columns: repeat(${props => props.column}, 1fr);
 `
