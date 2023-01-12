@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
         --c-purple: #9C71FF;
         --c-orange: #FFB014;
         --c-black: #252525;
+        --c-red: #DC0000;
+        --c-green-dark: #489446;
+        --c-background: #e7e8de;
     }
 
     *{
