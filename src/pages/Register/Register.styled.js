@@ -5,12 +5,10 @@ export const RegisterStyled = styled.section`
     &{
         display: flex;
         flex-direction: column;
-        align-items:center;
+        align-items: center;
     }
 
-
     h1{
-        text-align: center;
         margin: 10px 0;
     }
 
@@ -71,9 +69,10 @@ export const RegisterStyled = styled.section`
             font-size: 1em;
         }
 
-        & input[type=checkbox]{
+        & input[type=checkbox], input[type=radio]{
             accent-color: var(--c-purple);
         }
+
 
         & input:out-of-range{
             border: solid red 1px;
@@ -89,6 +88,7 @@ export const RegisterStyled = styled.section`
         & label.label-input{
             font-size: 1.1em;
             font-weight: 600;
+            margin: 6px 0;
         }
 
         & label{
@@ -103,22 +103,6 @@ export const RegisterStyled = styled.section`
             padding-left: 4px;
             position:relative;
         }
-
     }
 
-    & .group-inputs-inline{
-        display: grid;
-        grid-template-columns: 50% 45%;
-        justify-content: space-between;
-    }
-
-    & .group-input-number{
-        display: flex;
-    }
-
-`
-
-export const GridInputInline = styled.section`
-    display: grid;
-    grid-template-columns: repeat(${props => props.column}, 1fr);
 `
