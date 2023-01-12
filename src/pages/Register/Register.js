@@ -1,11 +1,10 @@
-import { useEffect } from "react";
-import { RegisterStyled, GridInputInline } from "./Register.styled";
+import { RegisterStyled } from "./Register.styled";
 
 import { useForm } from "react-hook-form";
 
 const Register = () => {
 
-    const { register, watch, setValue, formState: { errors }, handleSubmit } = useForm({
+    const { register, formState: { errors }, handleSubmit } = useForm({
         manager:{
             name: '',
             email: '',
@@ -18,9 +17,7 @@ const Register = () => {
             sport: '',
             instagram: '',
             schedule: [],
-            age: {min: 0, max: 0},
-            teamGender: '',
-            teamGameType: '',
+            group_type: '',
             price: ''
 
         }
@@ -31,7 +28,6 @@ const Register = () => {
         console.log(data);
         console.log(errors)
     }
-
 
     return(
         <RegisterStyled>
@@ -104,43 +100,38 @@ const Register = () => {
             
                 </fieldset>
 
-
                 <fieldset id="form-about-group">
                     <legend>Dados sobre o grupo</legend>
 
-                    <section className="group-inputs-inline">
+                    <div className="group-input">
+                        <label className="label-input required-input" htmlFor="group-name">Nome do Grupo:</label>
+                        <input 
+                            type="text" 
+                            name="group-name"
+                            id="group-name"
+                            placeholder="Digite o nome do grupo"
+                            {...register("group.name", {
+                                required: "O campo nome deve ser preenchido",
+                                minLength: {value: 2, message: "O campo deve ter no minímo 2 caracteres"}
+                            })}
+                        />
+                        {errors.group?.name && <p role="alert">{errors.group.name?.message}</p>}
+                    </div>
 
-                        <div className="group-input">
-                            <label className="label-input required-input" htmlFor="group-name">Nome do Grupo:</label>
-                            <input 
-                                type="text" 
-                                name="group-name"
-                                id="group-name"
-                                placeholder="Digite o nome do grupo"
-                                {...register("group.name", {
-                                    required: "O campo nome deve ser preenchido",
-                                    minLength: {value: 2, message: "O campo deve ter no minímo 2 caracteres"}
-                                })}
-                            />
-                            {errors.group?.name && <p role="alert">{errors.group.name?.message}</p>}
-                        </div>
-
-                        <div className="group-input">
-                            <label className="label-input required-input" htmlFor="group-sport">Esporte:</label>
-                            <input 
-                                type="text"
-                                name="group-sport"
-                                id="group-sport"
-                                placeholder="Digite o esporte que o grupo prática"
-                                {...register("group.sport", {
-                                    required: "O campo de esporte deve ser preenchido",
-                                    minLength: {value: 2, message: "O campo deve ter no minímo 2 caracteres"}
-                                })}
-                            />
-                            {errors.group?.sport && <p role="alert">{errors.group.sport?.message}</p>}
-                        </div>
-
-                    </section>
+                    <div className="group-input">
+                        <label className="label-input required-input" htmlFor="group-sport">Esporte:</label>
+                        <input 
+                            type="text"
+                            name="group-sport"
+                            id="group-sport"
+                            placeholder="Digite o esporte que o grupo prática"
+                            {...register("group.sport", {
+                                required: "O campo de esporte deve ser preenchido",
+                                minLength: {value: 2, message: "O campo deve ter no minímo 2 caracteres"}
+                            })}
+                        />
+                        {errors.group?.sport && <p role="alert">{errors.group.sport?.message}</p>}
+                    </div>
 
                     <div className="group-input">
                         <label className="label-input" htmlFor="group-instagram">Instagram:</label>
@@ -154,14 +145,13 @@ const Register = () => {
                     </div>  
 
                     <div className="group-input">
-                        <label className="label-input"> Hórario: </label>
-                            <GridInputInline column={3}>
+                        <label className="label-input required-input"> Hórario: </label>
                             <label>
                                 <input 
                                     type="checkbox" 
                                     name="group-date-time" 
-                                    value="Matutino (06:00 - 12:00)" 
-                                    {...register("group.schedule")}
+                                    value="Matutino" 
+                                    {...register("group.schedule", {required: 'Escolha um grupo de horário'})}
                                 />
                                 Matutino (06:00 - 12:00)
                             </label>
@@ -170,8 +160,8 @@ const Register = () => {
                                 <input 
                                     type="checkbox" 
                                     name="group-date-time" 
-                                    value="Vespertino (12:00 - 18:00)" 
-                                    {...register("group.schedule")}
+                                    value="Vespertino" 
+                                    {...register("group.schedule", {required: 'Escolha um grupo de horário'})}
                                 />
                                 Vespertino (12:00 - 18:00)
                             </label>
@@ -180,138 +170,91 @@ const Register = () => {
                                 <input 
                                     type="checkbox" 
                                     name="group-date-time" 
-                                    value="Noturno (18:00 - 00:00)" 
-                                    {...register("group.schedule")}
+                                    value="Noturno" 
+                                    {...register("group.schedule", {required: 'Escolha um grupo de horário'})}
                                 />
                                 Noturno (18:00 - 00:00)
                             </label>
 
-                            </GridInputInline>
+                            {errors.group?.schedule && <p role="alert">{errors.group.schedule?.message}</p>}     
+                    </div>
+                    
+                    <div className="group-input">
+                        <label className="label-input required-input"> O grupo se encaixa em quais opções: </label>
                             
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    name="group-type"  
+                                    value="Recreativo" 
+                                    {...register("group.group_type", {required: 'Escolha um grupo de horário'})}
+                                />
+                                Recreativo
+                            </label>
+
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    name="group-type"  
+                                    value="Amador" 
+                                    {...register("group.group_type", {required: 'Escolha um grupo de horário'})}
+                                />
+                                Amador
+                            </label>
+
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    name="group-type"  
+                                    value="Profissional" 
+                                    {...register("group.group_type", {required: 'Escolha um grupo de horário'})}
+                                />
+                                Profissional
+                            </label>
+                          
+                            {errors.group?.group_type && <p role="alert">{errors.group.group_type?.message}</p>}     
                     </div>
 
-                            
+                    <div className="group-input">
+                        <label className="label-input required-input">Tipo de pagamento para acesso e participação:</label>
 
-                    <section className="group-inputs-inline">
-                        <div className="group-input">
-                            <label className="label-input">Idade Mínima:</label>
+                            <label>
                                 <input 
-                                    type="number" 
-                                    name="group-age-min" 
-                                    id="group-age-min"
-                                    min="5"
-                                    max="100"
-                                    {...register("group.age.min")}
+                                    type="radio" 
+                                    name="group-price-rules" 
+                                    value="free" 
+                                    {...register("group.price", {required: 'Escolha uma das opções de pagamento'})}
                                 />
-                        </div>
+                                Gratuito
+                            </label>
 
-                        <div className="group-input">
-                            <label className="label-input">Idade Máxima:</label>
+                            <label>
                                 <input 
-                                    type="number" 
-                                    name="group-age-max" 
-                                    id="group-age-max"
-                                    min="5"
-                                    max="100"
-                                    {...register("group.age.max")}
+                                    type='radio' 
+                                    name="group-price-rules" 
+                                    value="month-payment" 
+                                    {...register("group.price", {required: 'Escolha uma das opções de pagamento'})}
                                 />
-                        </div>
-                    </section>
-                    
-                    
-                    
-            
+                                Pagamento mensal
+                            </label>
 
+                            <label>
+                                <input 
+                                    type='radio' 
+                                    name="group-price-rules" 
+                                    value="game-payment" 
+                                    {...register("group.price", {required: 'Escolha uma das opções de pagamento'})}
+                                />
+                                Pagamento por dia de jogo
+                            </label>
 
-
+                            {errors.group?.price && <p role="alert">{errors.group.price?.message}</p>}     
+                    </div>
                 </fieldset>
 
-                <button type="submit">
-                    Registrar
-                </button>
+                <button type="submit">Registrar</button>
 
-                {/* <fieldset>
-                  
-
-
-                    <label>
-                        Idade:
-                        <label>
-                            Idade Minima
-                            <input type="number" name="group-age-min" />
-                        </label>
-
-                        <label>
-                            Idade Maxíma
-                            <input type="number" name="group-age-max" />
-                        </label>
-                    </label>
-
-                    <label>
-                        Em qual opção o grupo se encaixa?
-
-                        <label>
-                            Time Feminino
-                            <input type="radio" name='group-gender-rules' value="woman" />
-                        </label>
-
-                        <label>
-                            Time Masculino
-                            <input type="radio" name='group-gender-rules' value="man" />
-                        </label>
-
-                        <label>
-                            Time Misto
-                            <input type="radio" name='group-gender-rules' value="mixed" />
-                        </label>
-
-                        <label>
-                            <input type="text" name='group-gender-rules' placeholder="Digite em qual opção o grupo se encaixa" />
-                        </label>
-                    </label>
-
-                    <label>
-                        O grupo se encaixa em quais regras de jogo:
-                        <label>
-                            Recreativo
-                            <input type="checkbox" name="group-game-rules" value="recreativo" />
-                        </label>
-
-                        <label>
-                            Jogo
-                            <input type='checkbox' name="group-game-rules" value="game" />
-                        </label>
-
-                        <label>
-                            Treinamento
-                            <input type='checkbox' name="group-game-rules" value="training" />
-                        </label>
-                    </label>
-
-
-                    <label>
-                        Preço para acesso e participação:
-                        <label>
-                            Gratuito
-                            <input type="radio" name="group-price-rules" value="Gratuito" />
-                        </label>
-
-                        <label>
-                            Pagamento mensal
-                            <input type='radio' name="group-price-rules" value="Pagamento mensal" />
-                        </label>
-
-                        <label>
-                            Pagamento por dia de jogo
-                            <input type='radio' name="group-price-rules" value="Pagamento jogo" />
-                        </label>
-                    </label>
-
-                </fieldset>
-                */}
             </form>
-            
-
         </RegisterStyled>
     )
 }
