@@ -1,4 +1,4 @@
-import { RegisterStyled, AlertMessageStyled } from "./RegisterStyle";
+import { RegisterStyled, AlertMessageStyled } from "./Register.styled";
 
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
