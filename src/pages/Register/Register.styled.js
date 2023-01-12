@@ -35,6 +35,10 @@ export const RegisterStyled = styled.section`
             border: solid var(--c-purple) 3px;
         }
 
+        & fieldset#form-about-group-address{
+            border: solid var(--c-green) 3px;
+        }
+
         & legend{
             font-size: 1em;
             font-weight: 800;
@@ -63,7 +67,7 @@ export const RegisterStyled = styled.section`
             font-size: 1rem;
         }
 
-        & input{
+        & input, select{
             font-size: 1.1em;
             margin: 4px 0;
             padding: 10px 8px;
@@ -72,6 +76,7 @@ export const RegisterStyled = styled.section`
         & input[type=checkbox], input[type=radio]{
             accent-color: var(--c-purple);
         }
+
     }
 
     & .group-input{
@@ -111,7 +116,7 @@ export const breatheAnimation = keyframes`
 export const AlertMessageStyled = styled.div`
     padding: 10px;
     border: solid var(--c-green) 2px;
-    background: var(--c-green);
+    /* background: var(--c-green); */
     box-shadow: 2px 2px 8px -1px var(--c-green); 
 
     width: auto;
@@ -119,7 +124,8 @@ export const AlertMessageStyled = styled.div`
 
     position: absolute;
 
-    visibility: ${showMessage => showMessage == true ? 'initial' : 'hidden' };
+    visibility: ${showMessage => showMessage ? 'initial' : 'hidden' };
+    background: ${showMessage => showMessage ? 'red' : 'green' };
 
     -webkit-animation: ${breatheAnimation} 2s;
     -webkit-animation-fill-mode: forwards;
