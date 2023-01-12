@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const RegisterStyled = styled.section`
 
     &{
-        display: flex;
-        flex-direction: column;
         align-items: center;
+        display: flex;
+        flex-direction: column; 
     }
 
     h1{
@@ -13,14 +13,11 @@ export const RegisterStyled = styled.section`
     }
 
     form{
-        padding: 10px;
         border-radius: 6px;
-        width: 90%;
-
         display: flex;
         flex-direction: column;
-
-        font-size: 1.1em;
+        padding: 10px;
+        width: 90%;
 
         & fieldset{
             margin: 8px 0;
@@ -28,11 +25,11 @@ export const RegisterStyled = styled.section`
         }
 
         & fieldset#form-about-manager{
-            border: solid var(--c-orange) 5px;
+            border: solid var(--c-orange) 3px;
         }
 
         & fieldset#form-about-group{
-            border: solid var(--c-purple) 5px;
+            border: solid var(--c-purple) 3px;
         }
 
         & legend{
@@ -43,6 +40,7 @@ export const RegisterStyled = styled.section`
         }
 
         & button{
+            align-self: flex-end;
             background-color: #489446;
             color: #e7e8de;
             display: flex;
@@ -51,34 +49,27 @@ export const RegisterStyled = styled.section`
             letter-spacing: 2px;
             margin: 10px 0;
             padding: 20px 16px;
-            align-self: flex-end;
-
+            
             &:hover{
                 background-color: var(--c-black);
             }
         }
 
         & p[role="alert"]{
-            color: red;
-            font-size: .8em;
+            color: var(--c-red);
+            font-size: 1rem;
         }
 
         & input{
-            padding: 10px 8px;
+            font-size: 1.1em;
             margin: 4px 0;
-            font-size: 1em;
+            padding: 10px 8px;
         }
 
         & input[type=checkbox], input[type=radio]{
             accent-color: var(--c-purple);
         }
-
-
-        & input:out-of-range{
-            border: solid red 1px;
-        }
     }
-
 
     & .group-input{
         display: flex;
@@ -92,16 +83,16 @@ export const RegisterStyled = styled.section`
         }
 
         & label{
-            font-size: 1em;
+            font-size: 1.1em;
             font-weight: 400;
         }
 
         & label.required-input:after{
-            content:"*";
-            color:red;
-            font-size: .8rem;
-            padding-left: 4px;
-            position:relative;
+            content: "*";
+            color: var(--c-red);
+            font-size: 1rem;
+            padding-left: 2px;
+            position: relative;
         }
     }
 
