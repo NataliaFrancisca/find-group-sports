@@ -1,10 +1,14 @@
-import { RegisterStyled } from "./Register.styled";
+import { RegisterStyled, AlertMessageStyled } from "./RegisterStyle";
 
 import { useForm } from "react-hook-form";
+import { useEffect, useRef, useState } from "react";
 
 const Register = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm({
+
+    const ref_form = useRef();
+
+    const { register, reset,  formState: { errors }, handleSubmit } = useForm({
         manager:{
             name: '',
             email: '',
@@ -23,17 +27,43 @@ const Register = () => {
         }
     });
 
+    const [showSucceedMessage, setShowSucceedMessage] = useState(false);
+
     
     const onSubmit = data => {
+
+        const objErrorIsEmpty = JSON.stringify(errors) === '{}';
+
         console.log(data);
-        console.log(errors)
+
+        if(objErrorIsEmpty){
+            ref_form.current.reset();
+            setShowSucceedMessage(true)
+        }
     }
+    
+
+    useEffect(() => {
+        if(showSucceedMessage){
+            setTimeout(() => {
+                setShowSucceedMessage(false);
+                console.log(showSucceedMessage)
+            }, 2000);
+        }
+
+        console.log(showSucceedMessage)
+    },[showSucceedMessage])
 
     return(
         <RegisterStyled>
             <h1>Preencha os dados abaixo para registrar seu grupo</h1>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
+
+                <AlertMessageStyled showMessage={showSucceedMessage}>
+                    <p>✅Cadastro realizado com sucesso</p>
+                </AlertMessageStyled>
+
                 <fieldset id="form-about-manager">
                     <legend>Dados sobre o responsável</legend>
 
