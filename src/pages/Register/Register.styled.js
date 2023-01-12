@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { keyframes } from 'styled-components'
 
 export const RegisterStyled = styled.section`
 
@@ -9,7 +10,8 @@ export const RegisterStyled = styled.section`
     }
 
     h1{
-        margin: 10px 0;
+        margin: 10px;
+        text-align: center;
     }
 
     form{
@@ -17,6 +19,7 @@ export const RegisterStyled = styled.section`
         display: flex;
         flex-direction: column;
         padding: 10px;
+        position: relative;
         width: 90%;
 
         & fieldset{
@@ -97,3 +100,29 @@ export const RegisterStyled = styled.section`
     }
 
 `
+
+export const breatheAnimation = keyframes`
+    0% { top: 0px}
+    30% {  top: 30px  }
+    60% {  top: 40px  }
+    100% { top:  50px }
+`
+
+export const AlertMessageStyled = styled.div`
+    padding: 10px;
+    border: solid var(--c-green) 2px;
+    background: var(--c-green);
+    box-shadow: 2px 2px 8px -1px var(--c-green); 
+
+    width: auto;
+    align-self: flex-end;
+
+    position: absolute;
+
+    visibility: ${showMessage => showMessage == true ? 'initial' : 'hidden' };
+
+    -webkit-animation: ${breatheAnimation} 2s;
+    -webkit-animation-fill-mode: forwards;
+
+`
+
