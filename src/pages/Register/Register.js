@@ -3,9 +3,12 @@ import { RegisterStyled } from "./Register.styled";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 
+import { useAuthentication } from "../../hooks/useAuthentication";
+
 const Register = () => {
 
     const ref_form = useRef();
+    const { createUser, error: authError } = useAuthentication();
 
     const { register, formState: { errors }, handleSubmit } = useForm({
             name: '',
@@ -13,12 +16,14 @@ const Register = () => {
             password: ''
     });
     
-    const onSubmit = data => {
+    const onSubmit = async(data) => {
 
         const objErrorIsEmpty = JSON.stringify(errors) === '{}';
 
         if(objErrorIsEmpty){
             console.log(data);
+            const res = await createUser(data);
+            console.log(res)
             ref_form.current.reset();
         }
     }
