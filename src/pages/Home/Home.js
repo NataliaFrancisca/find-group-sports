@@ -16,7 +16,7 @@ const Home = () => {
             <section className="container-images">
                 <div className="first-group">
                     <div id="img-circle">
-                        <img src="assets/sport-tenis.jpg" alt="raquete de tenis" />
+                        <img src="assets/images/sport-tenis.jpg" alt="raquete de tenis" />
                     </div>
                     
                     <button className="btn-navigate-page" onClick={() => navigate("/feed")}>Find your group now</button>
@@ -24,11 +24,11 @@ const Home = () => {
 
                 <div className="second-group">
                     <div id="img-semi-cirle">
-                        <img src="assets/sport-basketball.jpg" alt="cesta de basquete"/>
+                        <img src="assets/images/sport-basketball.jpg" alt="cesta de basquete"/>
                     </div>
                     
                     <div id="img-square">
-                        <img src="assets/sport-run.jpg" alt="pista de corrida" />
+                        <img src="assets/images/sport-run.jpg" alt="pista de corrida" />
                     </div>
                 </div>
             </section>
