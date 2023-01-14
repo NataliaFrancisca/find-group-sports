@@ -1,9 +1,16 @@
-import { RegisterStyled } from "./Register.styled";
+import { RegisterStyled, ButtonFormStyled } from "./Register.styled";
 
 import { useForm } from "react-hook-form";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import { useAuthentication } from "../../hooks/useAuthentication";
 
 const Register = () => {
+
+    const { createUser, createUserGoogle, error: authError } = useAuthentication();
+
+    const [errorAuth, setErrorAuth] = useState("");
+    const [succeedAuth, setSucceedAuth] = useState(false);
 
     const ref_form = useRef();
 
@@ -13,21 +20,47 @@ const Register = () => {
             password: ''
     });
     
-    const onSubmit = data => {
+    const onSubmit = async(data) => {
+        setErrorAuth("");
 
         const objErrorIsEmpty = JSON.stringify(errors) === '{}';
 
         if(objErrorIsEmpty){
-            console.log(data);
+            const res = await createUser(data);
+            setSucceedAuth(true);
             ref_form.current.reset();
         }
     }
+
+    const registerWithGoogle = async() => {
+        const res = await createUserGoogle();
+       
+        if(res){
+            setSucceedAuth(true);
+        }
+    }
+
+    useEffect(() => {
+        if(authError){
+            setErrorAuth(authError);
+        }
+    },[authError])
+
+    useEffect(() => {
+        if(succeedAuth){
+            setTimeout(() => {
+                setSucceedAuth(false)
+            },4000)
+        }
+    },[succeedAuth])
     
     return(
         <RegisterStyled>
-
             <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
                 <h1>Registro</h1>
+
+                {succeedAuth && <p id="succeed-message">Cadastro realizado com sucesso!</p>}
+                {errorAuth && <p id="error-message">{errorAuth}</p>}
 
                 <div className="group-input">
                     <label className="label-input required-input" htmlFor="name">Nome:</label>
@@ -75,12 +108,15 @@ const Register = () => {
                     {errors?.password && <p role="alert">{errors.password?.message}</p>}
                 </div>
 
-                <button type="submit" id='btn-register'>Registrar</button>
+                <ButtonFormStyled type="submit" id='btn-register'>
+                    Registrar
+                </ButtonFormStyled>
 
-                <button id="btn-register-google">
+                <ButtonFormStyled type="button" id="btn-register-google" 
+                    onClick={() => registerWithGoogle()}>
                     <img src="assets/icon/icon-google.svg" />
                     Registrar com Google
-                </button>
+                </ButtonFormStyled>
 
             </form>
         </RegisterStyled>
