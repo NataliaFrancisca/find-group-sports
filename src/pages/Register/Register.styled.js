@@ -40,40 +40,6 @@ export const RegisterStyled = styled.section`
             text-transform: uppercase;
         }
 
-        & button{
-            align-items: center;
-            box-shadow: 0px 0px 5px -3px var(--c-black);
-            display: flex;
-            font-size: 1.1em;
-            font-weight: 500;
-            justify-content: center;
-            margin: 6px 0;
-            padding: 10px 8px;
-        }
-
-        & button#btn-register{
-            background-color: var(--c-green-dark);
-            color: var(--c-background);
-            margin-top: 20px;
-        }
-
-        & button#btn-register-google{
-            background: var(--c-white);
-            color: var(--c-black);
-    
-            & img{
-                height: 25px;
-                margin: 0 10px;
-                width: 25px;
-            }
-        }
-
-        & #btn-register:hover, #btn-register-google:hover{
-            background: var(--c-black);
-            color: var(--c-white);
-        }
-
-
         & p[role="alert"]{
             color: var(--c-red);
             font-size: 1rem;
@@ -87,6 +53,24 @@ export const RegisterStyled = styled.section`
 
         & input[type=checkbox], input[type=radio]{
             accent-color: var(--c-purple);
+        }
+
+        & p#error-message{
+            width: fit-content;
+            padding: 6px 10px;
+            background: var(--c-red);
+            display: flex;
+            align-self: flex-end;
+            color: var(--c-white);
+        }
+
+        & p#succeed-message{
+            width: fit-content;
+            padding: 6px 10px;
+            background: var(--c-green-dark);
+            display: flex;
+            align-self: flex-end;
+            color: var(--c-white);
         }
 
     }
@@ -115,6 +99,43 @@ export const RegisterStyled = styled.section`
             position: relative;
         }
     }
+
+`
+
+export const ButtonFormStyled = styled.button`
+        & {
+            align-items: center;
+            box-shadow: 0px 0px 5px -3px var(--c-black);
+            display: flex;
+            font-size: 1.1em;
+            font-weight: 500;
+            justify-content: center;
+            margin: 6px 0;
+            padding: 10px 8px;
+        }
+
+        &#btn-register{
+            background-color: var(--c-green-dark);
+            color: var(--c-background);
+            margin-top: 20px;
+        }
+
+        &#btn-register-google{
+            background: var(--c-white);
+            color: var(--c-black);
+
+            & img{
+                height: 25px;
+                margin: 0 10px;
+                width: 25px;
+            }
+        }
+
+        &#btn-register:hover, 
+        &#btn-register-google:hover{
+            background: var(--c-black);
+            color: var(--c-white);
+        }
 
 `
 
