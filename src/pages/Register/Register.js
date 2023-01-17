@@ -34,7 +34,6 @@ const Register = () => {
 
     const registerWithGoogle = async() => {
         const res = await createUserGoogle();
-       
         if(res){
             setSucceedAuth(true);
         }
@@ -59,7 +58,7 @@ const Register = () => {
             <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
                 <h1>Registro</h1>
 
-                {succeedAuth && <p id="succeed-message">Cadastro realizado com sucesso!</p>}
+                {succeedAuth && !errorAuth && <p id="succeed-message">Cadastro realizado com sucesso!</p>}
                 {errorAuth && <p id="error-message">{errorAuth}</p>}
 
                 <div className="group-input">
