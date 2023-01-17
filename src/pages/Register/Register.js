@@ -45,13 +45,12 @@ const Register = () => {
         }
     },[authError])
 
-    useEffect(() => {
-        if(succeedAuth){
-            setTimeout(() => {
-                setSucceedAuth(false)
-            },4000)
-        }
-    },[succeedAuth])
+  
+    if(succeedAuth){
+        setTimeout(() => {
+            setSucceedAuth(false)
+        },4000)
+    }
     
     return(
         <RegisterStyled>
