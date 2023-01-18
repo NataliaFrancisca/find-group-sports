@@ -26,7 +26,8 @@ menu nav ul a:not(:first-child){
     margin-left: 10px;
 }
 
-menu nav a:hover{
+menu nav a:hover,
+mwnu nav ul button:hover{
     background-color: #489446;
     color: #e7e8de;
     transition: all ease-in-out .6s;
@@ -35,4 +36,15 @@ menu nav a:hover{
 menu nav ul a.active{
     background-color: #489446;
     color: #e7e8de;
+}
+
+menu nav ul button{
+    background-color: transparent;
+    color: #000000;
+    font-size: 1.1em;
+    font-weight: 600;
+
+    padding: 10px;
+    margin: 10px;
+    transition: all ease-in-out .6s;
 }
