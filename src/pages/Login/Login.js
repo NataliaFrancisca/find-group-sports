@@ -1,13 +1,13 @@
-import { RegisterStyled, ButtonFormStyled } from "./Register.styled";
-
-import { useForm } from "react-hook-form";
-import { useEffect, useRef, useState } from "react";
-
 import { useAuthentication } from "../../hooks/useAuthentication";
 
-const Register = () => {
+import { FormStyled, ButtonFormStyled} from "../../styles/Form.styled";
 
-    const { createUser, createUserGoogle, error: authError } = useAuthentication();
+import { useForm } from "react-hook-form";
+import { useRef, useState, useEffect } from "react"
+
+const Login = () => {
+
+    const { login, createUserGoogle, error: authError } = useAuthentication();
 
     const [errorAuth, setErrorAuth] = useState("");
     const [succeedAuth, setSucceedAuth] = useState(false);
@@ -15,25 +15,20 @@ const Register = () => {
     const ref_form = useRef();
 
     const { register, formState: { errors }, handleSubmit } = useForm({
-            name: '',
-            email: '',
-            password: ''
-    });
-    
+        email: '',
+        password: ''
+    })
+
     const onSubmit = async(data) => {
-        setErrorAuth("");
-
-        const objErrorIsEmpty = JSON.stringify(errors) === '{}';
-
-        if(objErrorIsEmpty){
-            const res = await createUser(data);
-            setSucceedAuth(true);
-            ref_form.current.reset();
-        }
+        console.log(data)
+        const res = await login(data);
+        console.log('aaaa', res);
     }
 
-    const registerWithGoogle = async() => {
+
+    const loginWithGoogle = async() => {
         const res = await createUserGoogle();
+        console.log(res);
         if(res){
             setSucceedAuth(true);
         }
@@ -53,28 +48,12 @@ const Register = () => {
     }
     
     return(
-        <RegisterStyled>
+        <FormStyled>  
             <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
-                <h1>Registro</h1>
+                <h1>Login</h1>
 
-                {succeedAuth && !errorAuth && <p id="succeed-message">Cadastro realizado com sucesso!</p>}
+                {succeedAuth && !errorAuth && <p id="succeed-message">Login realizado com sucesso, aguarde o redirecionamento!</p>}
                 {errorAuth && <p id="error-message">{errorAuth}</p>}
-
-                <div className="group-input">
-                    <label className="label-input required-input" htmlFor="name">Nome:</label>
-                    <input 
-                        type='text' 
-                        name="name" 
-                        id="name"
-                        placeholder="Nome do responsável"
-                        {...register("name", { 
-                            required: "O campo nome deve ser preenchido", 
-                            minLength: {value: 2, message: "O nome deve conter no mínimo 2 caracteres"}, 
-                            maxLength: {value: 20, message: "O nome deve conter no máximo 20 caracteres"}
-                        })}
-                    />
-                    {errors.name && <p role="alert">{errors.name?.message}</p>}
-                </div>
 
                 <div className="group-input">
                     <label className="label-input required-input" htmlFor="manager-email">E-mail:</label>
@@ -106,19 +85,18 @@ const Register = () => {
                     {errors?.password && <p role="alert">{errors.password?.message}</p>}
                 </div>
 
-                <ButtonFormStyled type="submit" id='btn-register'>
-                    Registrar
+                <ButtonFormStyled type="submit" id='btn-default' value="Login">
+                    Login
                 </ButtonFormStyled>
 
-                <ButtonFormStyled type="button" id="btn-register-google" 
-                    onClick={() => registerWithGoogle()}>
+                <ButtonFormStyled type="button" id="btn-google" onClick={() => loginWithGoogle()}>
                     <img src="assets/icon/icon-google.svg" />
-                    Registrar com Google
+                    Login com Google
                 </ButtonFormStyled>
 
             </form>
-        </RegisterStyled>
+        </FormStyled>
     )
 }
 
-export default Register;
+export default Login;
