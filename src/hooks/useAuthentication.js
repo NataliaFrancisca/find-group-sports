@@ -58,34 +58,40 @@ export const useAuthentication = () => {
 
             return user;
         }catch(error){
-            const errorCode = error.code;
-            const errorMessage = error.message;
-
-            const email = error.customData.email;
-            const credential = GoogleAuthProvider.credentialFromError(error);
-
-            console.log(errorCode);
-            console.log(errorMessage);
-            console.log(email);
-            console.log(credential);
-
+            GoogleAuthProvider.credentialFromError(error);
+            return error.message;
         }
      
     }
+
+    const login = async(data) => {
+        let systemErrorMessage;
+
+        try{
+            const result = await signInWithEmailAndPassword(auth, data.email, data.password);
+            return result;
+        }catch(error){
+            console.log(error.message);
+            console.log(typeof error.message);
+
+            if(error.message.includes("user-not-found")){
+                systemErrorMessage = "Usuário não encontrado.";
+            }else if(error.message.includes("wrong-password")){
+                systemErrorMessage = "Senha incorreta.";
+            }else{
+                systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde"
+            }
+        }
+
+        setError(systemErrorMessage);
+    }
+
 
     const logout = () => {
         signOut(auth);
     }
 
-    const login = async(data) => {
-        try{
-            await signInWithEmailAndPassword(auth, data.email, data.password);
-        }catch(error){
-            console.log(error.message);
-        }
-    }
-
-
+   
     return {
         auth,
         createUser,
