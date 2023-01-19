@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body, html{
-        font-family: 'Roboto Slab', serif;
+        font-family: 'Anek Latin', sans-serif;
         background-color: #e7e8de;
     }
 
@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     h6, 
     label, 
     span{
-        font-family: 'Roboto Slab', serif;
+        font-family: 'Anek Latin', sans-serif;
     }
 
     button{
@@ -47,5 +47,4 @@ export const GlobalStyle = createGlobalStyle`
     button:hover{
         transition: all ease-in .4s;
     }
-
 `

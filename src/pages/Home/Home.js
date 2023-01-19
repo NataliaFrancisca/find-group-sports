@@ -9,17 +9,17 @@ const Home = () => {
     return(
         <HomeStyled>
             <section className="container-text">
-                <h1 className="title">The Power to <br /> live Healthy <br /> and Fit</h1>
-                <p className="subtitle">Encontre um grupo para praticar esportes</p>
+                <h1 className="title">Bora <br /> Jogar?</h1>
+                <p className="subtitle">Encontre um grupo para você praticar esportes.</p>
+
+                <button className="btn-navigate-page" onClick={() => navigate("/feed")}>Find your group now</button>
             </section>
 
-            <section className="container-images">
+            {/* <section className="container-images">
                 <div className="first-group">
                     <div id="img-circle">
                         <img src="assets/images/sport-tenis.jpg" alt="raquete de tenis" />
                     </div>
-                    
-                    <button className="btn-navigate-page" onClick={() => navigate("/feed")}>Find your group now</button>
                 </div>
 
                 <div className="second-group">
@@ -31,7 +31,7 @@ const Home = () => {
                         <img src="assets/images/sport-run.jpg" alt="pista de corrida" />
                     </div>
                 </div>
-            </section>
+            </section> */}
         </HomeStyled>
     )
 }
