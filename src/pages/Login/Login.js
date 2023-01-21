@@ -1,6 +1,6 @@
 import { useAuthentication } from "../../hooks/useAuthentication";
 
-import { FormStyled, ButtonFormStyled} from "../../styles/Form.styled";
+import { FormStyled, ButtonDefaultStyled, ButtonGoogleStyled} from "../../styles/Form.styled";
 
 import { useForm } from "react-hook-form";
 import { useRef, useState, useEffect } from "react"
@@ -49,7 +49,7 @@ const Login = () => {
     
     return(
         <FormStyled>  
-            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
+            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form} id="form-login">
                 <h1>Login</h1>
 
                 {succeedAuth && !errorAuth && <p id="succeed-message">Login realizado com sucesso, aguarde o redirecionamento!</p>}
@@ -85,14 +85,14 @@ const Login = () => {
                     {errors?.password && <p role="alert">{errors.password?.message}</p>}
                 </div>
 
-                <ButtonFormStyled type="submit" id='btn-default' value="Login">
+                <ButtonDefaultStyled type="submit" id='btn-default' value="Login">
                     Login
-                </ButtonFormStyled>
+                </ButtonDefaultStyled>
 
-                <ButtonFormStyled type="button" id="btn-google" onClick={() => loginWithGoogle()}>
+                <ButtonGoogleStyled type="button" id="btn-google" onClick={() => loginWithGoogle()}>
                     <img src="assets/icon/icon-google.svg" />
                     Login com Google
-                </ButtonFormStyled>
+                </ButtonGoogleStyled>
 
             </form>
         </FormStyled>

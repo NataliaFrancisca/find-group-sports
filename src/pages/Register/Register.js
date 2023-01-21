@@ -1,4 +1,5 @@
 import { RegisterStyled, ButtonFormStyled } from "./Register.styled";
+import { FormStyled, ButtonDefaultStyled, ButtonGoogleStyled} from "../../styles/Form.styled";
 
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
@@ -53,8 +54,8 @@ const Register = () => {
     }
     
     return(
-        <RegisterStyled>
-            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
+        <FormStyled>
+            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form} id="form-register">
                 <h1>Registro</h1>
 
                 {succeedAuth && !errorAuth && <p id="succeed-message">Cadastro realizado com sucesso!</p>}
@@ -106,18 +107,18 @@ const Register = () => {
                     {errors?.password && <p role="alert">{errors.password?.message}</p>}
                 </div>
 
-                <ButtonFormStyled type="submit" id='btn-register'>
+                <ButtonDefaultStyled type="submit" id='btn-register'>
                     Registrar
-                </ButtonFormStyled>
+                </ButtonDefaultStyled>
 
-                <ButtonFormStyled type="button" id="btn-register-google" 
+                <ButtonGoogleStyled type="button" id="btn-register-google" 
                     onClick={() => registerWithGoogle()}>
                     <img src="assets/icon/icon-google.svg" />
                     Registrar com Google
-                </ButtonFormStyled>
+                </ButtonGoogleStyled>
 
             </form>
-        </RegisterStyled>
+        </FormStyled>
     )
 }
 
