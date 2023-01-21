@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { ButtonStyled } from "./Global.styled";
+
 
 export const FormStyled = styled.section`
 
@@ -12,17 +14,99 @@ export const FormStyled = styled.section`
 
     h1{
         margin: 10px 0;
+        font-size: 1.4em;
+        font-weight: 800;
+        text-transform: uppercase;
     }
 
     form{
         border-radius: 6px;
         display: flex;
         flex-direction: column;
-        padding: 20px 30px;
+        font-size: 1.2em;
+        padding: 40px;
         position: relative;
-        width: 40%;
+        width: 50%;
         background: var(--c-background);
-        box-shadow: 0px 0px 13px -4px;
+        border: solid var(--c-black) 4px;
+        z-index: 1;
+
+        &#form-login{
+            :after{
+                left: 10px;
+                top: 4px;
+            }
+        }
+
+        &#form-register{
+            :after{
+                right: 10px;
+                top: 10px;
+            }
+        }
+
+        :after{
+            content: "";
+            border: solid var(--c-purple) 4px;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        input, select{
+            border-radius: 4px;
+            font-size: 1.1em;
+            margin: 4px 0;
+            padding: 16px 8px;
+        }
+
+        input[type=checkbox], 
+        input[type=radio]{
+            accent-color: var(--c-purple);
+        }
+
+        p[role="alert"]{
+            color: var(--c-red);
+            font-size: 1.1rem;
+        }
+
+        p#error-message,
+        p#succeed-message{
+            width: fit-content;
+            padding: 6px 10px;
+            display: flex;
+            align-self: flex-end;
+            color: var(--c-white);
+        }
+
+        p#error-message{
+            background: var(--c-red);
+        }
+
+        p#succeed-message{
+            background: var(--c-green-dark);
+        }
+
+        .group-input{
+            display: flex;
+            flex-direction: column;
+            margin: 6px 0;
+
+            label{
+                font-size: 1.1em;
+                font-weight: 600;
+                margin: 4px 0;
+            }
+
+            label.required-input:after{
+                content: "*";
+                color: var(--c-red);
+                font-size: 1rem;
+                padding-left: 2px;
+                position: relative;
+            }
+        }
 
         @media screen and (max-width: 800px){
             width: 60%;
@@ -31,109 +115,32 @@ export const FormStyled = styled.section`
         @media screen and (max-width: 600px){
             width: 90%;
         }
-
-        & legend{
-            font-size: 1em;
-            font-weight: 800;
-            padding: 0 10px;
-            text-transform: uppercase;
-        }
-
-        & p[role="alert"]{
-            color: var(--c-red);
-            font-size: 1rem;
-        }
-
-        & input, select{
-            font-size: 1.1em;
-            margin: 4px 0;
-            padding: 10px 8px;
-        }
-
-        & input[type=checkbox], input[type=radio]{
-            accent-color: var(--c-purple);
-        }
-
-        & p#error-message{
-            width: fit-content;
-            padding: 6px 10px;
-            background: var(--c-red);
-            display: flex;
-            align-self: flex-end;
-            color: var(--c-white);
-        }
-
-        & p#succeed-message{
-            width: fit-content;
-            padding: 6px 10px;
-            background: var(--c-green-dark);
-            display: flex;
-            align-self: flex-end;
-            color: var(--c-white);
-        }
-
-    }
-
-    & .group-input{
-        display: flex;
-        flex-direction: column;
-        margin: 6px 0;
-
-        & label.label-input{
-            font-size: 1.1em;
-            font-weight: 600;
-            margin: 6px 0;
-        }
-
-        & label{
-            font-size: 1.1em;
-            font-weight: 400;
-        }
-
-        & label.required-input:after{
-            content: "*";
-            color: var(--c-red);
-            font-size: 1rem;
-            padding-left: 2px;
-            position: relative;
-        }
     }
 
 `
+export const ButtonDefaultStyled = styled(ButtonStyled)`
+    background-color: var(--c-green);
+    color: var(--c-black);
+    margin-top: 20px;
 
-export const ButtonFormStyled = styled.button`
-        & {
-            align-items: center;
-            box-shadow: 0px 0px 5px -3px var(--c-black);
-            display: flex;
-            font-size: 1.1em;
-            font-weight: 500;
-            justify-content: center;
-            margin: 6px 0;
-            padding: 10px 8px;
-        }
+    :hover{
+        background: var(--c-black);
+        color: var(--c-white);
+    }
+`
 
-        &#btn-default{
-            background-color: var(--c-green-dark);
-            color: var(--c-background);
-            margin-top: 20px;
-        }
+export const ButtonGoogleStyled = styled(ButtonStyled)`
+    background: var(--c-white);
+    color: var(--c-black);
 
-        &#btn-google{
-            background: var(--c-white);
-            color: var(--c-black);
+    img{
+        height: 25px;
+        margin: 0 10px;
+        width: 25px;
+    }
 
-            & img{
-                height: 25px;
-                margin: 0 10px;
-                width: 25px;
-            }
-        }
-
-        &#btn-default:hover, 
-        &#btn-google:hover{
-            background: var(--c-black);
-            color: var(--c-white);
-        }
-
+    :hover{
+        background: var(--c-black);
+        color: var(--c-white);
+    }
 `

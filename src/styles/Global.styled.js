@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
     :root{
@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body, html{
         font-family: 'Anek Latin', sans-serif;
+        font-size: 100%;
         background-color: #e7e8de;
     }
 
@@ -47,4 +48,23 @@ export const GlobalStyle = createGlobalStyle`
     button:hover{
         transition: all ease-in .4s;
     }
+`
+
+export const ButtonStyled = styled.button`
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px -3px var(--c-black);
+    cursor: pointer;
+    display: flex;
+    font-size: 1.2em;
+    font-weight: 500;
+    justify-content: center;
+    margin: 6px 0;
+    padding: 12px 8px;
+    transition: all ease-in .4s;
+
+    :hover{
+        transition: all ease-in .4s;
+    }
+
 `
