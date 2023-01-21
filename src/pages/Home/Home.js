@@ -1,4 +1,4 @@
-import { HomeStyled } from "./Home.styled";
+import { HomeStyled, GroupImagesStyled} from "./Home.styled";
 
 import { useNavigate } from "react-router-dom";
 
@@ -14,21 +14,19 @@ const Home = () => {
                 <button className="btn-navigate-page" onClick={() => navigate("/feed")}>Find your group now</button>
             </section>
 
-            <section className="container-images">
-           
-                <div id="img-circle">
+            <GroupImagesStyled>
+                <div className="div-image-home circle">
                     <img src="assets/images/sport-tenis.jpg" alt="raquete de tenis" />
                 </div>
 
-                <div id="img-semi-cirle">
+                <div className="div-image-home semi-circle">
                     <img src="assets/images/sport-basketball.jpg" alt="cesta de basquete"/>
                 </div>
 
-                <div id="img-square">
+                <div className="div-image-home square">
                     <img src="assets/images/sport-run.jpg" alt="pista de corrida" />
-                </div>
-                
-            </section>
+                </div> 
+            </GroupImagesStyled>
         </HomeStyled>
     )
 }
