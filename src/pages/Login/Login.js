@@ -49,7 +49,7 @@ const Login = () => {
     
     return(
         <FormStyled>  
-            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form} id="form-login">
+            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
                 <h1>Login</h1>
 
                 {succeedAuth && !errorAuth && <p id="succeed-message">Login realizado com sucesso, aguarde o redirecionamento!</p>}
