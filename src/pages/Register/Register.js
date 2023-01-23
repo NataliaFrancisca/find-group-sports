@@ -55,7 +55,7 @@ const Register = () => {
     
     return(
         <FormStyled>
-            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form} id="form-register">
+            <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
                 <h1>Registro</h1>
 
                 {succeedAuth && !errorAuth && <p id="succeed-message">Cadastro realizado com sucesso!</p>}
