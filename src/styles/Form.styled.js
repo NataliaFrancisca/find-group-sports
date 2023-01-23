@@ -27,29 +27,17 @@ export const FormStyled = styled.section`
         padding: 40px;
         position: relative;
         width: 50%;
-        background: var(--c-background);
         border: solid var(--c-black) 4px;
         z-index: 1;
-
-        &#form-login{
-            :after{
-                left: 10px;
-                top: 4px;
-            }
-        }
-
-        &#form-register{
-            :after{
-                right: 10px;
-                top: 10px;
-            }
-        }
 
         :after{
             content: "";
             border: solid var(--c-purple) 4px;
+            border-radius: 6px;
             height: 100%;
+            left: 10px;
             position: absolute;
+            top: 4px;
             width: 100%;
             z-index: -1;
         }
