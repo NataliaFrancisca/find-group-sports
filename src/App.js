@@ -6,6 +6,9 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import DashBoard from "./pages/Dashboard/Dashboard";
 
+import CreateGroup from "./pages/Group/CreateGroup";
+import EditGroup from "./pages/Group/EditGroup";
+
 import { AuthProvider } from "./context/AuthContext";
 
 import { useAuthentication } from "./hooks/useAuthentication";
@@ -36,6 +39,11 @@ function App() {
               <Route 
                 path="/dashboard" 
                 element={user ? <DashBoard /> : <Navigate to="/login" />} 
+              />
+
+              <Route 
+                path="/group/create" 
+                element={user ? <CreateGroup /> : <Navigate to="/login" />} 
               />
 
               <Route 
