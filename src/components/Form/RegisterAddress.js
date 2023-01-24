@@ -5,7 +5,7 @@ const RegisterAddress = ({errors, register}) => {
         <fieldset id="form-about-group-address">
              <legend>Endereço:</legend>
 
-                <div className="group-input">
+                <div className="label-input-col">
                     <label className="label-input required-input" htmlFor="group-address-neighborhood">Bairro:</label>
                     <input 
                         type="text" 
@@ -22,7 +22,7 @@ const RegisterAddress = ({errors, register}) => {
                     {errors.group?.address.neighborhood && <p role="alert">{errors.group.address.neighborhood?.message}</p>}  
                 </div>  
 
-                <div className="group-input">
+                <div className="label-input-col">
                     <label className="label-input required-input" htmlFor="group-address-city">Cidade:</label>
                     <input 
                         type="text" 
@@ -39,7 +39,7 @@ const RegisterAddress = ({errors, register}) => {
                     {errors.group?.address.city && <p role="alert">{errors.group.address.city?.message}</p>}   
                 </div>  
 
-                <div className="group-input">
+                <div className="label-input-col">
                     <label className="label-input required-input" htmlFor="group-address-state">Estado:</label>
 
                     <select id="group-address-state" {...register("group.address.state", { required: 'Escolha o estado de onde o grupo se encontra'})}>

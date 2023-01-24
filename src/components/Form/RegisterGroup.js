@@ -1,9 +1,9 @@
 const RegisterGroup = ({errors, register}) => {
     return(
         <fieldset id="form-about-group">
-            <legend>Dados sobre o grupo</legend>
+            <legend>Dados sobre o grupo:</legend>
 
-            <div className="group-input">
+            <div className="label-input-col">
                 <label className="label-input required-input" htmlFor="group-name">Nome do Grupo:</label>
                 <input 
                     type="text" 
@@ -18,7 +18,7 @@ const RegisterGroup = ({errors, register}) => {
                 {errors.group?.name && <p role="alert">{errors.group.name?.message}</p>}
             </div>
 
-            <div className="group-input">
+            <div className="label-input-col">
                 <label className="label-input required-input" htmlFor="group-sport">Esporte:</label>
                 <input 
                     type="text"
@@ -33,7 +33,7 @@ const RegisterGroup = ({errors, register}) => {
                 {errors.group?.sport && <p role="alert">{errors.group.sport?.message}</p>}
             </div>
 
-            <div className="group-input">
+            <div className="label-input-col">
                 <label className="label-input" htmlFor="group-instagram">Instagram:</label>
                 <input 
                     type="text" 
@@ -45,7 +45,7 @@ const RegisterGroup = ({errors, register}) => {
                 {errors.group?.instagram && <p role="alert">{errors.group.instagram?.message}</p>}
             </div>  
 
-            <div className="group-input">
+            <div className="label-input-col">
                 <label className="label-input required-input"> Hórario: </label>
                     <label>
                         <input 
@@ -80,7 +80,7 @@ const RegisterGroup = ({errors, register}) => {
                     {errors.group?.schedule && <p role="alert">{errors.group.schedule?.message}</p>}     
             </div>
 
-            <div className="group-input">
+            <div className="label-input-col">
                 <label className="label-input required-input"> O grupo se encaixa em quais opções: </label>
                     
                     <label>
@@ -116,7 +116,7 @@ const RegisterGroup = ({errors, register}) => {
                     {errors.group?.group_type && <p role="alert">{errors.group.group_type?.message}</p>}     
             </div>
 
-            <div className="group-input">
+            <div className="label-input-col">
                 <label className="label-input required-input">Tipo de pagamento para acesso e participação:</label>
 
                     <label>

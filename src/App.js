@@ -6,9 +6,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import DashBoard from "./pages/Dashboard/Dashboard";
 
-import CreateGroup from "./pages/Group/CreateGroup";
-import EditGroup from "./pages/Group/EditGroup";
-
+import CreateGroup from "./pages/CreateGroup/CreateGroup";
 import { AuthProvider } from "./context/AuthContext";
 
 import { useAuthentication } from "./hooks/useAuthentication";
