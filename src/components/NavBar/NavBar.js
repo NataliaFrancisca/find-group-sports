@@ -26,6 +26,7 @@ const NavBar = () => {
 
                     {user && (
                         <>
+                            <NavLink to="/group/create">Criar Grupo</NavLink>
                             <NavLink to="/dashboard">Dashboard</NavLink>
                         </>
                     )}
