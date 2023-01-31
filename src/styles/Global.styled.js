@@ -7,9 +7,10 @@ export const GlobalStyle = createGlobalStyle`
         --c-orange: #FFB014;
         --c-black: #252525;
         --c-red: #DC0000;
-        --c-green-dark: #489446;
+        --c-green-dark: #118f45;
         --c-background: #e7e8de;
-        --c-white: #F9F9F9;
+        --c-white: #F8F8FF;
+        --border: 4px;
     }
 
     *{
@@ -22,7 +23,6 @@ export const GlobalStyle = createGlobalStyle`
     body, html{
         font-family: 'Anek Latin', sans-serif;
         font-size: 100%;
-        background-color: #e7e8de;
     }
 
     button, 
@@ -42,11 +42,11 @@ export const GlobalStyle = createGlobalStyle`
 
     button{
         cursor: pointer;
-        transition: all ease-in .4s;
+        transition: all ease-in .2s;
     }
 
     button:hover{
-        transition: all ease-in .4s;
+        transition: all ease-in .2s;
     }
 `
 
@@ -66,5 +66,23 @@ export const ButtonStyled = styled.button`
     :hover{
         transition: all ease-in .4s;
     }
+`
 
+export const AppStyled = styled.main`
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background: var(--c-background);
+    z-index: 1;
+`
+export const BackgroundFilter = styled.div`
+    background: url('assets/images/sport-volleyball-group.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(30%);
+    position: absolute;
+    z-index: -1;
 `
