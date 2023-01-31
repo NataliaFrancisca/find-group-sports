@@ -1,15 +1,18 @@
 menu{
-    height: 10vh;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 12vh;
+    justify-content: center;
 }
 
 menu nav{
-    width: 100%;
+    border-radius: var(--border);
+    width: 90%;
     padding: 10px 20px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 menu nav a{
@@ -18,7 +21,7 @@ menu nav a{
     font-size: 1.1em;
     font-weight: 600;
 
-    padding: 10px;
+    padding: 10px 5px;
     transition: all ease-in-out .6s;
 }
 
@@ -44,7 +47,7 @@ menu nav ul button{
     font-size: 1.1em;
     font-weight: 600;
 
-    padding: 10px;
-    margin: 10px;
+    padding: 10px 5px;
+    margin: 4px;
     transition: all ease-in-out .6s;
 }
