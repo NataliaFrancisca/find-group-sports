@@ -1,12 +1,10 @@
-import { FormStyled, ButtonDefaultStyled } from "../../styles/Form.styled";
-import { CreateGroupStyled } from "./CreateGroup.styled";
+import "./CreateGroup.styled.css";
 
 import RegisterAddress from "../../components/Form/RegisterAddress";
 import RegisterGroup from "../../components/Form/RegisterGroup";
 
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
-
 
 const CreateGroup = () => {
 
@@ -32,13 +30,13 @@ const CreateGroup = () => {
     }
 
     return(
-        <CreateGroupStyled onSubmit={handleSubmit(onSubmit)}>
-                <form>
-                    <RegisterGroup errors={errors} register={register} />
-                    <RegisterAddress errors={errors} register={register} />
-                    <ButtonDefaultStyled>Criar</ButtonDefaultStyled>
+        <main id="create-group-styled" onSubmit={handleSubmit(onSubmit)}>
+                <form ref={ref_form}>
+                    <fieldset errors={errors} register={register} />
+                    <fieldset errors={errors} register={register} />
+                    <button id="">Criar</button>
                 </form>
-        </CreateGroupStyled>
+        </main>
     )
 }
 

@@ -1,5 +1,5 @@
-import { RegisterStyled, ButtonFormStyled } from "./Register.styled";
-import { FormStyled, ButtonDefaultStyled, ButtonGoogleStyled} from "../../styles/Form.styled";
+// import { RegisterStyled, ButtonFormStyled } from "./Register.styled";
+// import { FormStyled, ButtonDefaultStyled, ButtonGoogleStyled} from "../../styles/Form.styled";
 
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
@@ -54,7 +54,7 @@ const Register = () => {
     }
     
     return(
-        <FormStyled>
+        <section id="register-styled">
             <form onSubmit={handleSubmit(onSubmit)} ref={ref_form}>
                 <h1>Registro</h1>
 
@@ -107,18 +107,18 @@ const Register = () => {
                     {errors?.password && <p role="alert">{errors.password?.message}</p>}
                 </div>
 
-                <ButtonDefaultStyled type="submit" id='btn-register'>
+                <button type="submit" id='btn-register'>
                     Registrar
-                </ButtonDefaultStyled>
+                </button>
 
-                <ButtonGoogleStyled type="button" id="btn-register-google" 
+                <button type="button" id="btn-register-google" 
                     onClick={() => registerWithGoogle()}>
                     <img src="assets/icon/icon-google.svg" />
                     Registrar com Google
-                </ButtonGoogleStyled>
+                </button>
 
             </form>
-        </FormStyled>
+        </section>
     )
 }
 
