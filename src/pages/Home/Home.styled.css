@@ -1,0 +1,145 @@
+#home-styled{
+    align-items: center;
+    border-radius: 3px;
+    color: var(--c-black);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 0 auto;
+    min-height: 85vh;
+    padding: 20px 0;
+    width: 95%;
+}
+
+h1.title{
+    font-size: 4em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 6.5rem;
+}
+
+p.subtitle{
+    color: var(--c-outline);
+    font-size: 1.8em;
+}
+
+/* GRID SECTION */
+section.grid-section{
+    align-items: center;
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+        "c-purple c-purple c-blue c-mint c-mint"
+        "c-green c-pink c-blue c-orange c-grey";
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: 50% 50%;
+    min-height: 360px;
+    height: auto;
+    justify-content: center;
+    margin: 20px 0;
+    width: 70%;
+}
+
+div.grid-element-div{
+    border: solid var(--c-outline) 2px;
+    border-radius: var(--border);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    position: relative;
+    transition: all ease-in-out .3s;
+    width: 100%;
+}
+
+div.grid-element-div:hover{
+    filter: brightness(80%);
+    transition: all ease-in-out .3s;
+}
+
+div.grid-element-div img{
+    align-self: flex-end;
+    height: 100px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+}
+
+div.grid-element-div span{
+    bottom: 10px;
+    color: var(--c-black);
+    font-size: 1.8em;
+    font-weight: 400;
+    left: 10px;
+    position: absolute;
+}
+
+/* GRID-AREA ELEMENTS */
+.volleyball{
+    background-color: var(--c-purple);
+    grid-area: c-purple;
+}
+
+.football{
+    background-color: var(--c-green);
+    grid-area: c-green;
+}
+
+.skateboard{
+    background-color: var(--c-mint);
+    grid-area: c-mint;
+}
+
+.skate-roller{
+    background-color: var(--c-orange);
+    grid-area: c-orange;
+}
+
+.ping-pong{
+    background-color: var(--c-pink);
+    grid-area: c-pink;
+}
+
+.basketball{
+    background-color: var(--c-blue);
+    grid-area: c-blue;
+}
+
+.others{
+    background-color: var(--c-grey);
+    grid-area: c-grey;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1200px){
+    section.grid-section{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 992px){
+    section.grid-section{
+        grid-template-areas:
+        "c-purple c-purple c-blue"
+        "c-green c-pink c-blue"
+        "c-mint c-mint c-mint"
+        "c-orange c-grey c-grey";
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: repeat(4, 200px);
+    }
+}
+
+@media screen and (max-width: 576px){
+    section.grid-section{
+        grid-template-areas:
+        "c-purple c-purple"
+        "c-green c-pink"
+        "c-blue c-blue"
+        "c-mint c-mint"
+        "c-orange c-grey";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(5, 200px);  
+    }
+}

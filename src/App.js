@@ -6,8 +6,6 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import DashBoard from "./pages/Dashboard/Dashboard";
 
-import { AppStyled, BackgroundFilter } from "./styles/Global.styled";
-
 import CreateGroup from "./pages/CreateGroup/CreateGroup";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -31,8 +29,7 @@ function App() {
   },[auth])
 
   return (
-    <AppStyled>
-      {location.pathname == "/" && <BackgroundFilter />}
+    <div className="App">
       <AuthProvider value={{ user }}>
           <NavBar />
             <Routes>
@@ -59,7 +56,7 @@ function App() {
               />
             </Routes>
       </AuthProvider>
-    </AppStyled>
+    </div>
   );
 }
 

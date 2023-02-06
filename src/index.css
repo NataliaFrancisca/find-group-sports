@@ -1,4 +1,62 @@
-import styled, { createGlobalStyle } from "styled-components"
+:root{
+    --c-green: #C9F4AA;
+    --c-purple: #ADA2FF;
+    --c-orange: #F99417;
+    --c-black: #252525;
+    --c-red: #DC0000;
+    --c-green-dark: #118f45;
+    --c-background: #e7e8de;
+    --c-pink: #FCC2FC;
+    --c-blue: #C0DEFF;
+    --c-yellow: #FFEA20;
+    --c-white: #F8F8FF;
+    --c-mint: #9DF1DF;
+    --c-grey: #E9E8E8;
+    --c-outline: #51565F;
+    --border: 4px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    font-family: 'Anek Latin', sans-serif;
+    font-size: 100%;
+}
+
+button, 
+input, 
+a, 
+legend, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+label, 
+span{
+    font-family: 'Anek Latin', sans-serif;
+}
+
+button{
+    cursor: pointer;
+    transition: all ease-in .2s;
+}
+
+button:hover{
+    transition: all ease-in .2s;
+}
+
+
+
+
+
+/* import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
     :root{
@@ -74,15 +132,4 @@ export const AppStyled = styled.main`
     position: absolute;
     background: var(--c-background);
     z-index: 1;
-`
-export const BackgroundFilter = styled.div`
-    background: url('assets/images/sport-volleyball-group.jpg');
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    filter: brightness(30%);
-    position: absolute;
-    z-index: -1;
-`
+` */
