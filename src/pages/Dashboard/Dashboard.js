@@ -1,10 +1,10 @@
-import { DashboardStyled } from "./Dashboard.styled";
+import "./Dashboard.styled.css";
 
 const DashBoard = () => {
     return(
-        <DashboardStyled>
+        <main>
            <h1>Dashboard</h1>
-        </DashboardStyled>
+        </main>
     )
 }
 
