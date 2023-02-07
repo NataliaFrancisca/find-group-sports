@@ -1,0 +1,38 @@
+.menu{
+    align-items: center;
+    display: flex;
+    height: 12vh;
+    justify-content: center;
+}
+
+.menu nav{
+    border-radius: var(--border);
+    width: 100%;
+    padding: 14px 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu nav a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 12px 10px;
+    border-radius: var(--border);
+}
+
+.menu nav ul a.active{
+    background-color: var(--c-mint);
+}
+
+.menu nav ul a:not(:first-child){
+    margin-left: 10px;
+}
+
+.menu nav a:hover{
+    background-color: var(--c-mint);
+}
+
+

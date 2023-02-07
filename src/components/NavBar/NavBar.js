@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import { useAuthValue  } from "../../context/AuthContext";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
-import "./NavBarStyle.css";
+import styles from "./NavBar.module.css";
 
 const NavBar = () => {
 
@@ -11,9 +11,9 @@ const NavBar = () => {
     const { user } = useAuthValue();
 
     return(
-        <menu>
+        <menu className={styles.menu}>
             <nav>
-                <NavLink to="/" end>Home</NavLink>
+                <NavLink to="/">Home</NavLink>
                 <ul>
                     <NavLink to="/groups">Grupos</NavLink>
 
@@ -31,7 +31,9 @@ const NavBar = () => {
                         </>
                     )}
 
-                    {user && <button onClick={logout}>Sair</button>}
+                    {user && 
+                    <NavLink onClick={logout} role="button">Sair</NavLink>
+                  }
                 </ul>
             </nav>
         </menu>
