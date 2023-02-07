@@ -1,44 +1,43 @@
-import "./Home.styled.css";
+import styles from "./Home.module.css";
 
 const Home = () => {
-
     return(
-        <main id="home-styled">
-            <h1 className="title">um titulo que ainda não sei</h1>
-            <p className="subtitle">Encontre um grupo para você praticar esportes.</p>
+        <main className={styles.homeStyled}>
+            <h1 className={styles.title}>um titulo que ainda não sei</h1>
+            <p className={styles.subtitle}>Encontre um grupo para você praticar esportes.</p>
 
-            <section className="grid-section">
-                <div className="grid-element-div volleyball" role='button'>
+            <section className={styles.gridSection}>
+                <div className={`${styles.gridElementDiv} ${styles.volleyball}`} role='button'>
                     <img src="assets/icon/volleyball-icon.svg" />
                     <span>Vôlei</span>
                 </div>
 
-                <div className="grid-element-div football" role='button'>
+                <div className={`${styles.gridElementDiv} ${styles.football}`} role='button'>
                     <img src="assets/icon/football-icon.svg" />
                     <span>Futebol</span>
                 </div>
 
-                <div className="grid-element-div skate-roller" role='button'>
+                <div className={`${styles.gridElementDiv} ${styles.skateRoller}`} role='button'>
                     <img src="assets/icon/skate-roller-icon.svg" />
                     <span>Patins</span>
                 </div>
 
-                <div className="grid-element-div ping-pong" role='button'>
+                <div className={`${styles.gridElementDiv} ${styles.pingPong}`} role='button'>
                     <img src="assets/icon/ping-pong-icon.svg" />
                     <span>Ping-Pong</span>
                 </div>
 
-                <div className="grid-element-div skateboard" role='button'>
+                <div className={`${styles.gridElementDiv} ${styles.skateboard}`} role='button'>
                     <img src="assets/icon/skateboard-icon.svg" />
                     <span>Skate</span>
                 </div>
 
-                <div className="grid-element-div basketball" role='button'>
+                <div className={`${styles.gridElementDiv} ${styles.basketball}`} role='button'>
                     <img src="assets/icon/basketball-icon.svg" />
                     <span>Basquete</span>
                 </div>
 
-                <div className="grid-element-div others" role='button'>
+                <div className={`${styles.gridElementDiv} ${styles.others}`} role='button'>
                     <span>Outros</span>
                 </div>
             </section>
